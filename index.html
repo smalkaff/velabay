@@ -21,8 +21,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#1
 .nav a:hover{color:#1a2e4a;border-bottom:2px solid #b8975a}
 
 /* HERO */
-.hero{background:linear-gradient(170deg,#0a1a2e 0%,#0d2a45 30%,#0e4a6e 60%,#1a7a8a 80%,#2a9a7a 100%);color:#fff;padding:90px 32px 72px;text-align:center;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='600'%3E%3Cdefs%3E%3CradialGradient id='g1' cx='60%25' cy='40%25' r='60%25'%3E%3Cstop offset='0%25' stop-color='%230e6e8a' stop-opacity='0.4'/%3E%3Cstop offset='100%25' stop-color='%230a1a2e' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect width='1200' height='600' fill='url(%23g1)'/%3E%3Cellipse cx='900' cy='200' rx='300' ry='200' fill='%231d9e75' opacity='0.08'/%3E%3Cellipse cx='200' cy='400' rx='250' ry='180' fill='%230e4a6e' opacity='0.15'/%3E%3C/svg%3E") center/cover no-repeat;pointer-events:none}
+.hero{background:url('hero-bg.jpg') center bottom/cover no-repeat;color:#fff;padding:90px 32px 72px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,26,46,0.82) 0%,rgba(10,26,46,0.55) 50%,rgba(10,26,46,0.2) 100%);pointer-events:none}
 .hero-ocean{position:absolute;bottom:0;left:0;width:100%;pointer-events:none}
 .hero-waves{position:absolute;bottom:0;left:0;width:100%;opacity:.15;pointer-events:none}
 .hero-logo{font-size:12px;letter-spacing:4px;color:#b8975a;font-weight:500;margin-bottom:18px;text-transform:uppercase}
@@ -103,6 +103,21 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#1
 .wa-form-btn:hover{background:#1ebe5c}
 .success-msg{display:none;background:#e8f4f0;color:#0f6e56;border-radius:8px;padding:20px;text-align:center;font-weight:500;margin-top:16px;font-size:14px}
 
+/* GALLERY */
+.gallery-section{padding:64px 24px;max-width:900px;margin:0 auto}
+.gallery-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:28px}
+.gallery-item{position:relative;overflow:hidden;border-radius:8px;cursor:pointer}
+.gallery-item img{width:100%;height:260px;object-fit:cover;display:block;transition:transform .4s ease}
+.gallery-item:hover img{transform:scale(1.04)}
+.gallery-item .gallery-caption{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(10,26,46,0.85));color:#fff;padding:20px 16px 14px;font-size:13px;font-weight:500;letter-spacing:.3px}
+.gallery-item.wide{grid-column:span 2}
+.gallery-item.wide img{height:360px}
+@media(max-width:600px){
+  .gallery-grid{grid-template-columns:1fr}
+  .gallery-item.wide{grid-column:span 1}
+  .gallery-item.wide img{height:220px}
+  .gallery-item img{height:200px}
+}
 /* FOOTER */
 .footer{background:#0d2137;color:#9fc8e0;padding:48px 24px;text-align:center}
 .footer h3{color:#b8975a;font-size:16px;font-weight:500;letter-spacing:2px;margin-bottom:6px;text-transform:uppercase}
@@ -156,7 +171,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#1
   <a href="#units">Units</a>
   <a href="#calc">Calculator</a>
   <a href="#location">Location</a>
-  <a href="#facilities">Facilities</a>
+  <a href="#gallery">Gallery</a>
   <a href="#register">Register</a>
 </nav>
 
@@ -287,11 +302,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#1
   <p style="font-size:15px;color:#4b5563;line-height:1.8;max-width:680px">Vela Bay sits at Bayshore Road in District 16 — part of the upcoming Bayshore masterplan with new residential, retail, park and medical developments on the doorstep. The Thomson-East Coast Line connects you directly to Orchard, Marina Bay and beyond.</p>
 
   <div style="margin-top:28px;border-radius:10px;overflow:hidden;border:0.5px solid #e5e7eb">
-    <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.7!2d103.9254!3d1.3089!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da1be6a5a7f5c7%3A0x0!2sBayshore+Rd%2C+Singapore+469977!5e0!3m2!1sen!2ssg!4v1700000000000!5m2!1sen!2ssg&markers=color:red%7C1.3089,103.9254"
-      width="100%" height="380" style="border:0;display:block" allowfullscreen="" loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
+    <img src="location-map.jpg" alt="Vela Bay Location Map" style="width:100%;display:block">
     <div style="background:#f0f6fb;padding:12px 16px;display:flex;align-items:center;gap:10px">
       <span style="font-size:16px">📍</span>
       <div>
@@ -381,7 +392,35 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#1
 </section>
 <div class="divider"></div>
 
-<!-- REGISTER -->
+<!-- GALLERY -->
+<section id="gallery">
+<div class="gallery-section">
+  <div class="section-label">Gallery</div>
+  <div class="gold-bar"></div>
+  <h2>See It for Yourself</h2>
+  <p style="font-size:15px;color:#4b5563;line-height:1.8;max-width:680px">Artist impressions and show unit photography. All images are for reference only.</p>
+
+  <div class="gallery-grid">
+    <div class="gallery-item wide">
+      <img src="gallery-1.jpg" alt="Vela Bay aerial view">
+      <div class="gallery-caption">Aerial render — twin towers overlooking East Coast Park &amp; the sea</div>
+    </div>
+    <div class="gallery-item">
+      <img src="gallery-2.jpg" alt="Vela Bay entrance">
+      <div class="gallery-caption">Grand entrance &amp; arrival lobby</div>
+    </div>
+    <div class="gallery-item">
+      <img src="gallery-3.jpg" alt="Vela Bay kitchen">
+      <div class="gallery-caption">Monaco kitchen — Miele &amp; Smeg appliances</div>
+    </div>
+    <div class="gallery-item wide">
+      <img src="gallery-4.jpg" alt="Vela Bay master bathroom">
+      <div class="gallery-caption">Master bathroom — Newform fittings, Geberit sanitary ware</div>
+    </div>
+  </div>
+</div>
+</section>
+<div class="divider"></div>
 <section id="register">
 <div class="section">
   <div class="section-label">Register Interest</div>
@@ -469,11 +508,24 @@ function calcUpdate(){
 function submitForm(){
   var name=document.getElementById('f-name').value.trim();
   var phone=document.getElementById('f-phone').value.trim();
+  var email=document.getElementById('f-email').value.trim();
+  var unit=document.getElementById('f-unit').value;
+  var profile=document.getElementById('f-profile').value;
   if(!name||!phone){alert('Please fill in your name and mobile number.');return;}
+  var msg='Hi Mo, I would like to register my interest for Vela Bay.%0A%0A'
+    +'*Name:* '+encodeURIComponent(name)+'%0A'
+    +'*Mobile:* '+encodeURIComponent(phone)+'%0A'
+    +(email?'*Email:* '+encodeURIComponent(email)+'%0A':'')
+    +(unit?'*Unit Type:* '+encodeURIComponent(unit)+'%0A':'')
+    +(profile?'*Buyer Profile:* '+encodeURIComponent(profile)+'%0A':'');
   document.getElementById('success-msg').style.display='block';
   document.getElementById('f-name').value='';
   document.getElementById('f-phone').value='';
   document.getElementById('f-email').value='';
+  document.getElementById('f-unit').value='';
+  setTimeout(function(){
+    window.open('https://wa.me/6594594680?text='+msg,'_blank');
+  },600);
 }
 
 calcUpdate();
