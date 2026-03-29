@@ -21,7 +21,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#1
 .nav a:hover{color:#1a2e4a;border-bottom:2px solid #b8975a}
 
 /* HERO */
-.hero{background:linear-gradient(170deg,#0d2137 0%,#1a3a5c 55%,#1d6e8a 100%);color:#fff;padding:90px 32px 72px;text-align:center;position:relative;overflow:hidden}
+.hero{background:linear-gradient(170deg,#0a1a2e 0%,#0d2a45 30%,#0e4a6e 60%,#1a7a8a 80%,#2a9a7a 100%);color:#fff;padding:90px 32px 72px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='600'%3E%3Cdefs%3E%3CradialGradient id='g1' cx='60%25' cy='40%25' r='60%25'%3E%3Cstop offset='0%25' stop-color='%230e6e8a' stop-opacity='0.4'/%3E%3Cstop offset='100%25' stop-color='%230a1a2e' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect width='1200' height='600' fill='url(%23g1)'/%3E%3Cellipse cx='900' cy='200' rx='300' ry='200' fill='%231d9e75' opacity='0.08'/%3E%3Cellipse cx='200' cy='400' rx='250' ry='180' fill='%230e4a6e' opacity='0.15'/%3E%3C/svg%3E") center/cover no-repeat;pointer-events:none}
+.hero-ocean{position:absolute;bottom:0;left:0;width:100%;pointer-events:none}
 .hero-waves{position:absolute;bottom:0;left:0;width:100%;opacity:.15;pointer-events:none}
 .hero-logo{font-size:12px;letter-spacing:4px;color:#b8975a;font-weight:500;margin-bottom:18px;text-transform:uppercase}
 .hero h1{font-size:clamp(38px,7vw,68px);font-weight:400;letter-spacing:4px;margin-bottom:8px;color:#fff}
@@ -123,9 +125,20 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#1
 
 <!-- HERO -->
 <section class="hero">
-  <svg class="hero-waves" viewBox="0 0 1200 80" preserveAspectRatio="none" style="height:80px">
-    <path d="M0,40 C200,70 400,10 600,40 C800,70 1000,10 1200,40 L1200,80 L0,80 Z" fill="#fff"/>
+  <svg class="hero-ocean" viewBox="0 0 1200 160" preserveAspectRatio="none" style="height:160px">
+    <path d="M0,80 C150,40 300,120 450,80 C600,40 750,100 900,70 C1050,40 1150,90 1200,75 L1200,160 L0,160 Z" fill="rgba(255,255,255,0.04)"/>
+    <path d="M0,100 C200,60 400,130 600,95 C800,60 1000,120 1200,90 L1200,160 L0,160 Z" fill="rgba(255,255,255,0.06)"/>
+    <path d="M0,120 C300,90 500,140 700,110 C900,80 1100,130 1200,115 L1200,160 L0,160 Z" fill="rgba(255,255,255,0.08)"/>
+    <path d="M0,135 C200,115 500,150 800,130 C1000,115 1150,140 1200,135 L1200,160 L0,160 Z" fill="#fff"/>
   </svg>
+  <div style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;overflow:hidden">
+    <div style="position:absolute;width:2px;background:rgba(184,151,90,0.3);top:10%;left:20%;height:60%;transform:rotate(-8deg)"></div>
+    <div style="position:absolute;width:2px;background:rgba(184,151,90,0.2);top:15%;left:22%;height:50%;transform:rotate(-6deg)"></div>
+    <div style="position:absolute;width:2px;background:rgba(184,151,90,0.3);top:10%;right:22%;height:65%;transform:rotate(8deg)"></div>
+    <div style="position:absolute;width:2px;background:rgba(184,151,90,0.2);top:15%;right:20%;height:55%;transform:rotate(6deg)"></div>
+    <div style="position:absolute;bottom:22%;left:19%;width:6%;height:1px;background:rgba(184,151,90,0.25);transform:rotate(-8deg)"></div>
+    <div style="position:absolute;bottom:22%;right:19%;width:6%;height:1px;background:rgba(184,151,90,0.25);transform:rotate(8deg)"></div>
+  </div>
   <div class="hero-logo">▲ VELA BAY 首航</div>
   <h1>VELA BAY</h1>
   <div class="hero-sub">Bayshore Road &nbsp;·&nbsp; District 16 &nbsp;·&nbsp; 99 Years</div>
@@ -133,7 +146,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#1
   <div class="cta-row">
     <a class="btn-gold" href="#register">Register Interest</a>
     <a class="btn-ghost" href="#units">View Units</a>
-    <a class="btn-wa" href="https://wa.me/6594594680?text=Hi%20Mo%2C%20I%27m%20interested%20in%20Vela%20Bay.%20Can%20you%20share%20more%20details%3F" target="_blank">💬 WhatsApp Mo</a>
+
   </div>
 </section>
 
@@ -273,6 +286,21 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#1
   <h2>At the Edge of the City, By the Sea</h2>
   <p style="font-size:15px;color:#4b5563;line-height:1.8;max-width:680px">Vela Bay sits at Bayshore Road in District 16 — part of the upcoming Bayshore masterplan with new residential, retail, park and medical developments on the doorstep. The Thomson-East Coast Line connects you directly to Orchard, Marina Bay and beyond.</p>
 
+  <div style="margin-top:28px;border-radius:10px;overflow:hidden;border:0.5px solid #e5e7eb">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.7!2d103.9254!3d1.3089!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da1be6a5a7f5c7%3A0x0!2sBayshore+Rd%2C+Singapore+469977!5e0!3m2!1sen!2ssg!4v1700000000000!5m2!1sen!2ssg&markers=color:red%7C1.3089,103.9254"
+      width="100%" height="380" style="border:0;display:block" allowfullscreen="" loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+    <div style="background:#f0f6fb;padding:12px 16px;display:flex;align-items:center;gap:10px">
+      <span style="font-size:16px">📍</span>
+      <div>
+        <div style="font-size:13px;font-weight:500;color:#1a2e4a">Vela Bay — Bayshore Road, Singapore</div>
+        <div style="font-size:12px;color:#6b7280">Corner of Bayshore Road &amp; Bayshore Walk · Next to Bayshore MRT (TEL)</div>
+      </div>
+    </div>
+  </div>
+
   <div class="location-grid">
     <div class="loc-card">
       <div class="loc-icon">🚇</div>
@@ -359,7 +387,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#1
   <div class="section-label">Register Interest</div>
   <div class="gold-bar"></div>
   <h2>Get Priority Access</h2>
-  <p style="font-size:15px;color:#4b5563;line-height:1.8;max-width:620px;margin-bottom:28px">Register now for priority briefing, floor plan release and indicative pricing — direct from your dedicated agent.</p>
+  <p style="font-size:15px;color:#4b5563;line-height:1.8;max-width:620px;margin-bottom:28px">Register now for priority briefing, floor plan release and indicative pricing — direct from this project's <strong>CORE TEAM</strong>.</p>
 
   <div class="form-box">
     <div class="form-grid">
