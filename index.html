@@ -22,7 +22,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#1
 
 /* HERO */
 .hero{background:url('hero-bg.jpg') center bottom/cover no-repeat;color:#fff;padding:90px 32px 72px;text-align:center;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,26,46,0.82) 0%,rgba(10,26,46,0.55) 50%,rgba(10,26,46,0.2) 100%);pointer-events:none}
+.hero::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,26,46,0.88) 0%,rgba(10,26,46,0.80) 50%,rgba(10,26,46,0.70) 100%);pointer-events:none}
 .hero-ocean{position:absolute;bottom:0;left:0;width:100%;pointer-events:none}
 .hero-waves{position:absolute;bottom:0;left:0;width:100%;opacity:.15;pointer-events:none}
 .hero-logo{font-size:12px;letter-spacing:4px;color:#b8975a;font-weight:500;margin-bottom:18px;text-transform:uppercase}
@@ -103,6 +103,14 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#1
 .wa-form-btn:hover{background:#1ebe5c}
 .success-msg{display:none;background:#e8f4f0;color:#0f6e56;border-radius:8px;padding:20px;text-align:center;font-weight:500;margin-top:16px;font-size:14px}
 
+/* FLOORPLANS */
+.fp-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-top:24px;margin-bottom:20px}
+.fp-tab{padding:8px 18px;border:0.5px solid #cbd5e1;border-radius:20px;font-size:13px;font-weight:500;cursor:pointer;background:#fff;color:#4b5563;transition:all .2s}
+.fp-tab.active{background:#1a2e4a;color:#fff;border-color:#1a2e4a}
+.fp-tab:hover:not(.active){background:#f0f6fb;border-color:#1a2e4a;color:#1a2e4a}
+.fp-image{display:none}
+.fp-image.active{display:block}
+.fp-image img{width:100%;border-radius:8px;border:0.5px solid #e5e7eb}
 /* GALLERY */
 .gallery-section{padding:64px 24px;max-width:900px;margin:0 auto}
 .gallery-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:28px}
@@ -171,6 +179,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#1
   <a href="#units">Units</a>
   <a href="#calc">Calculator</a>
   <a href="#location">Location</a>
+  <a href="#floorplans">Floor Plans</a>
   <a href="#gallery">Gallery</a>
   <a href="#register">Register</a>
 </nav>
@@ -392,6 +401,36 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#1
 </section>
 <div class="divider"></div>
 
+<!-- FLOORPLANS -->
+<section id="floorplans">
+<div class="section">
+  <div class="section-label">Floor Plans</div>
+  <div class="gold-bar"></div>
+  <h2>Explore the Layouts</h2>
+  <p style="font-size:14px;color:#6b7280">Floor plans are indicative and subject to change. Please refer to official sales documents.</p>
+
+  <div class="fp-tabs">
+    <button class="fp-tab active" onclick="showFP('2brp',this)">2 Bedroom Premium</button>
+    <button class="fp-tab" onclick="showFP('3brp',this)">3 Bedroom Premium</button>
+    <button class="fp-tab" onclick="showFP('5brp',this)">5 Bedroom + PL</button>
+  </div>
+
+  <div id="fp-2brp" class="fp-image active">
+    <img src="floorplan-2brp.jpg" alt="2 Bedroom Premium Floor Plan">
+    <p style="font-size:12px;color:#6b7280;margin-top:8px">2 Bedroom Premium · 64 sqm / 689 sqft · Block 1 #05-08 to #31-08</p>
+  </div>
+  <div id="fp-3brp" class="fp-image">
+    <img src="floorplan-3brp.jpg" alt="3 Bedroom Premium Floor Plan">
+    <p style="font-size:12px;color:#6b7280;margin-top:8px">3 Bedroom Premium · 96 sqm / 1,033 sqft · Block 1 #05-03 to #31-03</p>
+  </div>
+  <div id="fp-5brp" class="fp-image">
+    <img src="floorplan-5brp.jpg" alt="5 Bedroom Private Lift Floor Plan">
+    <p style="font-size:12px;color:#6b7280;margin-top:8px">5 Bedroom + Private Lift · 147 sqm / 1,582 sqft · Block 1 #05-05 to #30-05</p>
+  </div>
+</div>
+</section>
+<div class="divider"></div>
+
 <!-- GALLERY -->
 <section id="gallery">
 <div class="gallery-section">
@@ -402,20 +441,20 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#1
 
   <div class="gallery-grid">
     <div class="gallery-item wide">
-      <img src="gallery-1.jpg" alt="Vela Bay aerial view">
+      <img src="gallery-1.jpg" alt="Vela Bay aerial view" onerror="this.style.display='none'">
       <div class="gallery-caption">Aerial render — twin towers overlooking East Coast Park &amp; the sea</div>
     </div>
     <div class="gallery-item">
-      <img src="gallery-2.jpg" alt="Vela Bay entrance">
+      <img src="gallery-2.jpg" alt="Vela Bay entrance" onerror="this.style.display='none'">
       <div class="gallery-caption">Grand entrance &amp; arrival lobby</div>
     </div>
     <div class="gallery-item">
-      <img src="gallery-3.jpg" alt="Vela Bay kitchen">
-      <div class="gallery-caption">Monaco kitchen — Miele &amp; Smeg appliances</div>
+      <img src="gallery-4.jpg" alt="Vela Bay bathroom">
+      <div class="gallery-caption">Master bathroom — Newform fittings, Geberit sanitary ware</div>
     </div>
     <div class="gallery-item wide">
-      <img src="gallery-4.jpg" alt="Vela Bay master bathroom">
-      <div class="gallery-caption">Master bathroom — Newform fittings, Geberit sanitary ware</div>
+      <img src="gallery-3.jpg" alt="Vela Bay kitchen">
+      <div class="gallery-caption">Monaco kitchen — Miele &amp; Smeg appliances</div>
     </div>
   </div>
 </div>
@@ -470,7 +509,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#1
       </div>
     </div>
     <button class="submit-btn" onclick="submitForm()">Submit Registration</button>
-    <a class="wa-form-btn" href="https://wa.me/6594594680?text=Hi%20Mo%2C%20I%27m%20interested%20in%20Vela%20Bay.%20Can%20you%20share%20more%20details%3F" target="_blank">💬 Or WhatsApp Mo Directly</a>
+
     <div class="success-msg" id="success-msg">Thank you! Mo Alkaff will be in touch shortly with priority information for Vela Bay.</div>
   </div>
 </div>
@@ -528,7 +567,12 @@ function submitForm(){
   },600);
 }
 
-calcUpdate();
+function showFP(id,btn){
+  document.querySelectorAll('.fp-image').forEach(el=>el.classList.remove('active'));
+  document.querySelectorAll('.fp-tab').forEach(el=>el.classList.remove('active'));
+  document.getElementById('fp-'+id).classList.add('active');
+  btn.classList.add('active');
+}
 </script>
 </body>
 </html>
